@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveHeaven.com</title>
+    <style>
+        
+        body {
+            background-color: rgb(212, 208, 148);
+        }
+        .top-div {
+            background-color:whitesmoke;
+            color: #0c0c0c;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #070707;
+        }
+       
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color:rgb(177, 169, 123);
+            border-radius: 50%;
+            margin-right: 20px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #fff;
+        }
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        
+        .logo-sentence {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+      
+        .dropdown-container {
+            display: flex;
+            align-items: center;
+        }
+        .dropdown {
+            position: relative;
+            margin-left: 20px;
+        }
+        .dropdown button {
+            background-color: white;
+            color: #111010;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .dropdown button:hover {
+            background-color: slategray;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f0ebeb;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            left: 0;
+            top: 100%;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .sub-sub-dropdown {
+            display: none;
+            position: absolute;
+            left: -160px; 
+            top: 0;
+            min-width: 160px;
+            background-color: #f0ebeb;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+        .dropdown-content:hover .sub-sub-dropdown {
+            display: block;
+        }
+      
+        .background {
+            height: 600px;
+            border: 3px solid black;
+            background: url('../PROJECTS2/projectpictures/background.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            filter: blur(1px);
+        }
+        .date-selection {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 400px;
+        }
+        .date-selection h2 {
+            margin-bottom: 20px;
+        }
+        .date-selection form {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .date-selection .date-inputs {
+            display: flex;
+            flex-direction: column;
+            width: 45%;
+        }
+        .date-selection label {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .date-selection input[type="date"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: center;
+        }
+        .get-car-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            width: 100%; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-div">
+    <div class="logo">
+        <img src="../PROJECTS2/projectpictures/down1.png" alt="Logo">
+    </div>
+    <div class="logo-sentence" style="font-size: x-large; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+        "Don't just rent a car, rent an experience - start your adventure with us today...!"
+    </div>
+    
+    <div class="dropdown-container">
+        <div class="dropdown">
+            <button class="dropbtn">New Cars</button>
+            <div class="dropdown-content">
+                <a href="#">By Brand</a>
+                <div class="sub-sub-dropdown">
+                  <a href="search1.html?brand=maruti">Maruti Suzuki</a>
+                  <a href="search.html?brand=hyundai">Hyundai</a>
+                  <a href="search.html?brand=volkswagen">Volkswagen</a>
+                  <a href="search.html?brand=tata">Tata</a>
+                  <a href="search.html?brand=toyota">Toyota</a>
+                  <a href="search.html?brand=all">All Other Brands</a>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="confirmNavigation()">Home</button>
+        </div>
+    </div>
+</div>
+
+<div class="background"></div>
+<div class="date-selection">
+    <h2>Choose Dates</h2>
+    <form id="date-form" action="#" onsubmit="validateDates(event)">
+        <div class="date-inputs">
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" name="start-date">
+        </div>
+
+        <div class="date-inputs">
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" name="end-date">
+        </div>
+        
+        <div class="error-message" id="date-error"></div>
+        
+        <button type="submit" class="get-car-button">Get Car</button>
+    </form>
+</div>
+
+<script>
+    function confirmNavigation() {
+        var confirmation = confirm("Are you sure you want to exit?");
+        if (confirmation) {
+            window.location.href = "firstpage.html"; 
+        }
+    }
+
+    function validateDates(event) {
+        event.preventDefault();
+        
+        var startDate = new Date(document.getElementById("start-date").value);
+        var endDate = new Date(document.getElementById("end-date").value);
+        
+        var today = new Date(); 
+
+        if (startDate < today || endDate < today) {
+            alert("Please select dates from today onwards.");
+        } else if (startDate > endDate) {
+            alert("End date cannot be before the start date.");
+        } else {
+            alert("Page Loading Please Wait...!");
+                 window.location.href = "getcar.html"; 
+        }
+    }
+
+  
+   
+    function getUrlParameter(name) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(window.location.href);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    
+    var selectedCity = getUrlParameter('city');
+
+    
+    if (selectedCity) {
+        alert('Drive Your Way Through ' + selectedCity );
+    }
+</script>
+
+</script>
+
+</body>
+</html>

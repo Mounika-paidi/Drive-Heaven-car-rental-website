@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Rental GIF</title>
+  <style>
+    body {
+            background-color: rgb(238, 231, 231);
+        }
+        
+
+        .top-div {
+            background-color: rgb(53, 53, 51);
+            color: #f5f0f0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #070707;
+        }
+
+       
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(177, 169, 123);
+            border-radius: 50%;
+            margin-right: 20px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #fff;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+      
+        .logo-sentence {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+       
+        .dropdown-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown {
+            position: relative;
+            margin-left: 20px; 
+        }
+
+        .dropdown button {
+            background-color: white;
+            color: #0f0f0f;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown button:hover {
+            background-color: slategray;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f0ebeb;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(243, 239, 239, 0.2);
+            z-index: 1;
+            left: 0;
+            top: 100%;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .sub-sub-dropdown {
+            display: none;
+            position: absolute;
+            left: -160px; 
+            top: 0;
+            min-width: 160px;
+            background-color: #f0ebeb;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content:hover .sub-sub-dropdown {
+            display: block;
+        }
+
+        
+        .background {
+            height: 600px;
+            border: 3px solid rgb(231, 228, 228);
+            background: url('file:///C:/Users/User/Downloads/background.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            filter: blur(1px);
+        }
+
+    
+    .gif-container {
+      max-width: 100%;
+      position: relative;
+      overflow: hidden;
+      height: 450px; 
+    }
+    .car-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background-color:silver;
+        }
+
+        .car-box {
+            width: calc(25% - 20px); 
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(224, 221, 221, 0.1);
+            text-align: center;
+        }
+
+        .car-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 100px;
+        }
+
+        .car-name {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .car-ratings {
+            margin-top: 5px;
+            color: #666;
+        }
+
+        .car-price {
+            margin-top: 5px;
+            font-size: 18px;
+            color: #009688;
+        }
+.book-now-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .book-now-button:hover {
+            background-color: #005a4f;
+        }
+        
+
+  
+    .gif-container img {
+      width: 100%;
+      height: auto;
+    }
+
+     .text {
+      color: #fff;
+      font-size: 20px;
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+    }
+    .car-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.car-details-item {
+    background-color: #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.car-details-item + .car-details-item {
+    margin-left: 10px;
+}
+.logo-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px; /* Adjust as needed */
+        }
+        .logo-container img {
+            width: 100px; 
+            margin: 0 10px; 
+        }
+
+  </style>
+</head>
+<body>
+    <div class="top-div">
+        <div class="logo">
+            <img src="../PROJECTS2/projectpictures/ms5.gif" alt="Logo">
+        </div>
+        <div class="logo-sentence" style="font-size: x-large; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            "Don't just rent a car, rent an experience - start your adventure with us today...!"
+        </div>
+
+        <div class="dropdown-container">
+            <div class="dropdown">
+                <button class="dropbtn">New Cars</button>
+                <div class="dropdown-content">
+                    <a href="#">By Brand</a>
+                    <div class="sub-sub-dropdown">
+                      <a href="search1.html?brand=maruti">Maruti Suzuki</a>
+                      <a href="search2.html?brand=hyundai">Hyundai</a>
+                      <a href="search3.html?brand=volkswagen">Volkswagen</a>
+                      <a href="search4.html?brand=tata">Tata</a>
+                      <a href="search5.html?brand=toyota">Toyota</a>
+                      <a href="search6.html?brand=all">All Other Brands</a>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="confirmNavigation()">Home</button>
+            </div>
+        </div>
+    </div>
+<div>
+    <a href="firstpage.html">Back</a>
+</div>
+<div class="gif-container">
+  
+  <img src="../PROJECTS2/projectpictures/1_IULWPDNJDYmC4gVZqehv8w.gif">
+
+  
+  <div class="text">WELCOME TO DRIVEHEAVEN LUXURIES...!</div>
+</div>
+<div class="car-container">
+    <!-- Row 1 -->
+   
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f1.webp" alt="Car 1">
+        <div class="car-name">Toyota Land Cruiser</div>
+        <div class="car-ratings">5 stars</div>
+        <div class="car-price">1000/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">10-12km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f2.webp" alt="Car 2">
+        <div class="car-name">Land Rover Defender</div>
+        <div class="car-ratings">5 stars</div>
+        <div class="car-price">1579/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Electric+Petrol</div>
+            <div class="car-details-item">6.8-40km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button"  onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f3.webp" alt="Car 3">
+        <div class="car-name">BMW 7 Series</div>
+        <div class="car-ratings">5 stars</div>
+        <div class="car-price">3118/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">12.61-16.55km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f4.webp" alt="Car 4">
+        <div class="car-name">Land Rover Range Rover</div>
+        <div class="car-ratings">4.7 stars</div>
+        <div class="car-price">3050/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">24-34km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f5.webp" alt="Car 5">
+        <div class="car-name">Mercedes-Benz G-Class</div>
+        <div class="car-ratings">4.6 stars</div>
+        <div class="car-price">4021/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">23-34km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f6.webp" alt="Car 6">
+        <div class="car-name">BMW M4 Competition</div>
+        <div class="car-ratings">4.0 stars</div>
+        <div class="car-price">2016/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">diesel</div>
+            <div class="car-details-item">28-31km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f7.webp" alt="Car 7">
+        <div class="car-name">Toyota Vellfire</div>
+        <div class="car-ratings">4.4 stars</div>
+        <div class="car-price">2090/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">20-28km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f8.webp" alt="Car 8">
+        <div class="car-name">Mercedes-Benz Maybach S-Class</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">3000/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">diesel</div>
+            <div class="car-details-item">28-39km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f9.webp" alt="Car 9">
+        <div class="car-name">BMW X7</div>
+        <div class="car-ratings">4.1 stars</div>
+        <div class="car-price">3050/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">21-32km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f10.webp" alt="Car 10">
+        <div class="car-name">Lamborghini Huracan Evo</div>
+        <div class="car-ratings">4.6 stars</div>
+        <div class="car-price">3259/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">22-31km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f11.webp" alt="Car 11">
+        <div class="car-name">BMW XM</div>
+        <div class="car-ratings">4.5 stars</div>
+        <div class="car-price">3115/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">diesel</div>
+            <div class="car-details-item">22-35km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f12.webp" alt="Car 12">
+        <div class="car-name">Porshe 911</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">2155/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">22-32km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f13.webp" alt="Car 13">
+        <div class="car-name">Mercedes-Benz GLs</div>
+        <div class="car-ratings">4.7 stars</div>
+        <div class="car-price">2550/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">20-25km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f14.webp" alt="Car 14">
+        <div class="car-name">Mercedes-Benz Maybach GLS</div>
+        <div class="car-ratings">4.3 stars</div>
+        <div class="car-price">2556/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">20-31km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f15.webp" alt="Car 15">
+        <div class="car-name">Volvo XC90</div>
+        <div class="car-ratings">4.3 stars</div>
+        <div class="car-price">2161/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">29-32km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f16.webp" alt="Car 16">
+        <div class="car-name">Mercedes-Benz GLE</div>
+        <div class="car-ratings">4.3 stars</div>
+        <div class="car-price">2656/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">28-32km/l</div>
+            <div class="car-details-item">5 seater</div>
+            
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f17.webp" alt="Car 17">
+        <div class="car-name">BMW X5</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">2469/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Diesel</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f18.webp" alt="Car 18">
+        <div class="car-name">Land Rover Range Rover Sport</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">2469/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f19.webp" alt="Car 19">
+        <div class="car-name">BMW M8</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">2469/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petro/Diesel</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f20.webp" alt="Car 20">
+        <div class="car-name">Lamborghini Urus Performante</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">3469/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f21.webp" alt="Car 21">
+        <div class="car-name">BMW M2</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">2469/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">diesel</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f22.webp" alt="Car 22">
+        <div class="car-name">Jaguar I-pace</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">2469/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">diesel</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f23.webp" alt="Car 23">
+        <div class="car-name">Audi e-tron GT</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">2469/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">diesel</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/cayenne-exterior-right-front-three-quarter-2.webp" alt="Car 24">
+        <div class="car-name">Porsche Cayenne</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">2469/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f25.webp" alt="Car 25">
+        <div class="car-name">BMW X4 M40i</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">2469/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f26.webp" alt="Car 26">
+        <div class="car-name">Mercedes-Benz S-Class</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">3569/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f27.webp" alt="Car 27">
+        <div class="car-name">Porsche 718</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">2589/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f28.webp" alt="Car 28">
+        <div class="car-name">Lexus LX</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">3699/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f29.webp" alt="Car 29">
+        <div class="car-name">Mercedes-Benz AMG E53 Cabriolet</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">2599/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f30.webp" alt="Car 30">
+        <div class="car-name">Ferrari 296 GTB</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">5999/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f31.webp" alt="Car 31">
+        <div class="car-name">Bently Bentayga</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">5969/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f32.webp" alt="Car 32">
+        <div class="car-name">Land Rover Discovery</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">2469/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f33.webp" alt="Car 33">
+        <div class="car-name">Lexus LM</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">3469/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f34.webp" alt="Car 34">
+        <div class="car-name">Lamborghini Huracan Evo Spyder</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">4659/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    <div class="car-box">
+        <img src="../PROJECTS2/projectpictures/f35.webp" alt="Car 35">
+        <div class="car-name">Audi Q6</div>
+        <div class="car-ratings">4.8 stars</div>
+        <div class="car-price">469/hr</div>
+        <div class="car-details">
+            <div class="car-details-item">Petrol</div>
+            <div class="car-details-item">22-36km/l</div>
+            <div class="car-details-item">5 seater</div>
+        </div>
+        <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+    </div>
+    
+    <div class="logo-container">
+        <img src="../PROJECTS2/projectpictures/download.png" alt="">
+        <img src="../PROJECTS2/projectpictures/logo1.png" alt="">
+        <img src="../PROJECTS2/projectpictures/logo2.jpeg" alt="">
+        <img src="../PROJECTS2/projectpictures/logo3.jpeg" alt="">
+        <img src="../PROJECTS2/projectpictures/logo4.png" alt="">
+        <img src="../PROJECTS2/projectpictures/logo5.png" alt=""> 
+    </div>
+
+<script>
+            
+        function confirmNavigation() {
+            var confirmation = confirm("Are you sure you want to exit?");
+            if (confirmation) {
+                window.location.href = "firstpage.html"; 
+            }
+        }
+        
+        function redirectToBookingPage() {
+            
+            window.location.href = "warning.html"; 
+        }
+    </script> 
+</script>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive Heaven.com</title>
+    <style>
+        
+        .warning-container {
+            background-color: #f8d7da;
+            
+            color: #721c24;
+            
+            padding: 20px;
+            margin: 20px auto;
+            border: 1px solid #f5c6cb;
+            
+            border-radius: 5px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .warning-message {
+            margin-bottom: 15px;
+            font-weight:bolder; 
+        }
+
+        .btn-agree {
+            background-color: #007bff;
+            
+            color: #fff;
+         
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-agree:hover {
+            background-color: #0056b3;
+          
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warning-container">
+        <p class="warning-message"><strong>By using this website, you agree to the following:</strong></p>
+        <ul>
+            <li>Payment for the rental services must be made in person at the nearest DriveHeaven showroom. No online
+                payment options are available on the website.</li><br>
+            <li>A reservation made through the website does not constitute a confirmed booking until it has been
+                verified and confirmed by a representative at the DriveHeaven showroom.</li><br>
+            <li>Renters must meet the minimum age requirements and hold a valid driver's license in order to rent a
+                vehicle. Additional documentation may be required at the time of rental pickup.</li><br>
+            <li>Vehicles rented through DriveHeaven are for personal use only and may not be used for commercial
+                purposes or in violation of local laws and regulations.</li><br>
+            <li>Vehicles must be returned to the designated DriveHeaven showroom at the end of the rental period in
+                the same condition as they were rented, subject to normal wear and tear.</li><br>
+
+        </ul>
+        <button class="btn-agree" onclick="agree()">I agree</button>
+    </div>
+
+    <script>
+        function agree() {
+            
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>driveheaven.com</title>
+    <style>
+        body {
+            background-color: rgb(238, 236, 236);
+        }
+
+
+        .top-div {
+            background-color: rgb(221, 201, 219);
+            color: #0c0c0c;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #070707;
+        }
+
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(177, 169, 123);
+            border-radius: 50%;
+            margin-right: 20px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #fff;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+       
+        .logo-sentence {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+       
+        .dropdown-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown {
+            position: relative;
+            margin-left: 20px;
+           
+        }
+
+        .dropdown button {
+            background-color: white;
+            color: #111010;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown button:hover {
+            background-color: slategray;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f0ebeb;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            left: 0;
+            top: 100%;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .sub-sub-dropdown {
+            display: none;
+            position: absolute;
+            left: -160px;
+           
+            top: 0;
+            min-width: 160px;
+            background-color: #f0ebeb;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content:hover .sub-sub-dropdown {
+            display: block;
+        }
+
+      
+        .background {
+            height: 600px;
+            border: 3px solid black;
+            background: url('file:///C:/Users/User/Downloads/background.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            filter: blur(1px);
+        }
+
+        .additional-info {
+            display: none;
+         
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .view-more {
+            cursor: pointer;
+            color: blue;
+        }
+
+        .view-more:hover {
+            text-decoration: underline;
+        }
+
+        .car-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: rgb(226, 221, 214);
+        }
+
+        .car-box {
+            width: calc(25% - 20px);
+            
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .car-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 100px;
+        }
+
+        .car-name {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .car-ratings {
+            margin-top: 5px;
+            color: #666;
+        }
+
+        .car-price {
+            margin-top: 5px;
+            font-size: 18px;
+            color: #009688;
+        }
+
+        .book-now-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .book-now-button:hover {
+            background-color: #005a4f;
+        }
+
+        .slideshow-container {
+            margin: 0 auto;
+            
+            background-color: white;
+            
+        }
+
+        /* .slideshow-image {
+    display: none;
+    width: 100%;
+    height: auto;
+} */
+        .slideshow-container {
+            margin: 0 auto;
+            
+            background-color: white;
+            
+            max-width: 600px;
+            
+        }
+
+        .slideshow-image {
+            display: none;
+            width: 100%;
+            
+            max-width: 100%;
+            
+            height: auto;
+            
+        }
+
+        .car-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .car-details-item {
+            background-color: #ccc;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .car-details-item+.car-details-item {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-div">
+        <div class="logo">
+            <img src="../PROJECTS2/projectpictures/ms5.gif" alt="Logo">
+        </div>
+        <div class="logo-sentence"
+            style="font-size: x-large; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            "Don't just rent a car, rent an experience - start your adventure with us today...!"
+        </div>
+
+        <div class="dropdown-container">
+            <div class="dropdown">
+                <button class="dropbtn">New Cars</button>
+                <div class="dropdown-content">
+                    <a href="#">By Brand</a>
+                    <div class="sub-sub-dropdown">
+                        <a href="search1.html?brand=maruti">Maruti Suzuki</a>
+                        <a href="search2.html?brand=hyundai">Hyundai</a>
+                        <a href="search3.html?brand=volkswagen">Volkswagen</a>
+                        <a href="search4.html?brand=tata">Tata</a>
+                        <a href="search5.html?brand=toyota">Toyota</a>
+                        <a href="search6.html?brand=all">All Other Brands</a>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="confirmNavigation()">Home</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a href="firstpage.html">Back</a>
+    </div>
+    <div
+        style="text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        <h1>Volkswagen Cars Near you</h1>
+    </div>
+    <div>
+        <img class="slideshow-image"
+            src="../PROJECTS2/projectpictures/Curious-about-your-Dream-VW-Build-Find-Out-Banner.jpg"
+            alt="Slideshow Image 2">
+       
+    </div>
+
+    <div class="car-container">
+        <!-- Row 1 -->
+
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/v1.webp" alt="Car 1">
+            <div class="car-name">Volkswagen Virtus</div>
+            <div class="car-ratings">4.5 stars</div>
+            <div class="car-price">650/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">24-38km/l</div>
+                <div class="car-details-item">5 seater</div>
+            </div>
+
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/v2.webp" alt="Car 2">
+            <div class="car-name">Volkswagen Taigun</div>
+            <div class="car-ratings">3 stars</div>
+            <div class="car-price">355/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">24-32km/l</div>
+                <div class="car-details-item">4-5 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/v3.webp" alt="Car 3">
+            <div class="car-name">Volkswagen Tiguan</div>
+            <div class="car-ratings">4.3 stars</div>
+            <div class="car-price">618/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">13-16km/l</div>
+                <div class="car-details-item">5-7seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/v4.webp" alt="Car 4">
+            <div class="car-name">Volkswagen Polo</div>
+            <div class="car-ratings">4.7 stars</div>
+            <div class="car-price">650/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">24-34km/l</div>
+                <div class="car-details-item">5 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/v5.webp" alt="Car 5">
+            <div class="car-name">Volkswagen Venta</div>
+            <div class="car-ratings">4.6 stars</div>
+            <div class="car-price">521/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">23-34km/l</div>
+                <div class="car-details-item">5 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/v6.webp" alt="Car 6">
+            <div class="car-name">Volkswagen Ameo</div>
+            <div class="car-ratings">3.9 stars</div>
+            <div class="car-price">456/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">28-31km/l</div>
+                <div class="car-details-item">5 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/v7.webp" alt="Car 7">
+            <div class="car-name">Volkswagen Taigun</div>
+            <div class="car-ratings">3.4 stars</div>
+            <div class="car-price">490/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">20-28km/l</div>
+                <div class="car-details-item">5 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/v8.webp" alt="Car 8">
+            <div class="car-name">Volkswagen Tiguan</div>
+            <div class="car-ratings">3.8 stars</div>
+            <div class="car-price">400/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">28-39km/l</div>
+                <div class="car-details-item">5 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/v9.webp" alt="Car 9">
+            <div class="car-name">Volkswagen Jetta</div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">650/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">5 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/v10.webp" alt="Car 9">
+            <div class="car-name">Volkswagen Virtus</div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">350/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">5 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+
+
+        <div style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+            <p>Skoda Auto Volkswagen India Private Limited is the company that was formed in 2018 to manage the
+                interests of the German automaker in India. This group owns Skoda, Volkswagen, Audi, Lamborghini Ducati
+                and Porsche in India. The company’s headquarters is located in Mumbai and the brand made its entry into
+                India in 2001 when Skoda entered with the Octavia.</p>
+            <div class="additional-info">
+                <p>Volkswagen began its Indian journey with the Jetta and then the Passat. The German automaker now has
+                    the Polo, Vento, T-Roc and the Tiguan Allspace. By the end of 2021 its line up will also include the
+                    Tiguan and the made for India Taigun D-segment SUV.
+
+                    It has two plants, one in Chakan that has an high level of vertical integration and manufacturers
+                    the Polo, Vento, Skoda Rapid, Taigun and Skoda Kushaq. The other plant that the company owns is in
+                    Aurangabad where it assembles cars like the Tiguan, Skoda Octavia as well as the entire locally
+                    assembled Audi range that is sold in India.</p>
+            </div>
+            <div class="toggle-buttons">
+                <span class="view-more" onclick="toggleInfo()">View More</span>
+            </div>
+        </div>
+        <div style="width: 400px; margin: auto;">
+            <img src="../PROJECTS2/projectpictures/images.png" alt="">
+        </div>
+
+      
+        <script>
+           
+    function confirmNavigation() {
+        var confirmation = confirm("Are you sure you want to exit?");
+        if (confirmation) {
+            window.location.href = "firstpage.html"; 
+        }
+    }
+            var slideIndex = 0;
+            var slides = document.getElementsByClassName("slideshow-image");
+
+            function showSlides() {
+                for (var i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1
+                }
+                slides[slideIndex - 1].style.display = "block";
+                setTimeout(showSlides, 2000); 
+            }
+
+            showSlides();
+        </script>
+
+        <script>
+            function toggleInfo() {
+                var additionalInfo = document.querySelector('.additional-info');
+                var viewMoreButton = document.querySelector('.view-more');
+
+                if (additionalInfo.style.display === 'none') {
+                    additionalInfo.style.display = 'block';
+                    viewMoreButton.textContent = 'View Less';
+                } else {
+                    additionalInfo.style.display = 'none';
+                    viewMoreButton.textContent = 'View More';
+                }
+            }
+        </script>
+        <script>
+            function redirectToBookingPage() {
+                
+                window.location.href = "warning.html"; 
+            }
+        </script>
+</body>
+
+</html>

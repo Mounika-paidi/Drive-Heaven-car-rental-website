@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DriveHeaven.com</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2; 
+    }
+
+    #video-container {
+      position: relative;
+      width: 100%;
+      height: 450px; 
+      overflow: hidden;
+    }
+
+    #video-background {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      z-index: 1; 
+    }
+
+    #arrow {
+      position: absolute;
+      top: 50%;
+      right: 20px; 
+      transform: translateY(-50%);
+      width: 50px; 
+      height: 50px;
+      background-color: #ffffff; 
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 2; 
+    }
+
+    #arrow::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 20px;
+      height: 20px;
+      border-top: 3px solid #000000; 
+      border-right: 3px solid #000000; 
+    }
+
+    #content {
+      padding: 20px;
+      color: white;
+      text-align: center; 
+      z-index: 2; 
+    }
+    body{
+      background-color:#ccc9c9;
+    }
+    #content a {
+        text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="logo">
+    <!-- <img src="file:///C:/Users/User/Downloads/download.png" alt="Logo" width="100"> -->
+    <img src="../PROJECTS2/projectpictures/down1.png" alt="Logo" width="100">
+  </div>
+
+  <div style="text-align: center;">
+    <h1>Welcome To Drive Heaven (Where The Journey Meets Luxury)</h1>
+  </div>
+
+  <div id="video-container">
+    <video id="video-background" autoplay loop muted>
+      <!-- <source src="file:///C:/Users/User/OneDrive/Documents/main.mp4" type="video/mp4"> -->
+      <source src="../PROJECTS2/projectpictures/main.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div id="content" style="color: #000000;">
+    <h2>About us</h2>
+    <p>Drive Heaven is a website where it provides a hassle-free experience with a wide selection of vehicles to meet your needs. Whether it's a quick trip or an extended journey, our goal is to create a user-friendly online platform that enables customers to easily browse, select, and reserve rental vehicles. Our website also provides comprehensive information about available vehicles, rental terms, pricing, and booking procedures. Additionally, it also incorporates features for secure online payments and user account management to enhance the overall renting experience for customers.</p>
+  </div>
+  <div id="content" style="color: #000000;">
+    <h2 class="section-heading">Our Services</h2>
+    <p class="section-content">Drive Heaven website offer a streamlined platform for customers to browse, book, and manage their rentals online. Services include a diverse selection of vehicles, from cars to specialty options, along with detailed information on each. Customers can easily compare prices, manage reservations, and select insurance coverage to suit their needs. Additional services like GPS navigation and child car seats are available for added convenience. Responsive customer support via phone, email, or live chat ensures assistance when needed. Reviews and ratings from other users aid in making informed decisions. Overall, these websites strive to provide a hassle-free and comprehensive rental experience.</p>
+</div>
+
+<div id="content" style="color: #000000;">
+    <h2 class="section-heading">Contact Us</h2>
+    <p class="section-content contact-info">Email: xyz123@gmail.com<br>Phone: 1234567890</p>
+</div>
+  <a href="third.html" id="arrow"></a>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DriveHeaven.com</title>
+  <style type="text/css">
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+    #video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        object-fit: cover;
+    }
+    #content {
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        color: white;
+    }
+    #arrow {
+        position: absolute;
+        top: 50%;
+        right: 20px; 
+        transform: translateY(-50%);
+        width: 50px; 
+        height: 50px;
+        background-color: #ffffff; 
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    #arrow::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: 20px;
+        height: 20px;
+        border-top: 3px solid #000000; 
+        border-right: 3px solid #000000; 
+    }
+  </style>
+</head>
+<body>
+  <video id="video-background" autoplay loop muted>
+    <!-- <source src="file:///C:/Users/User/OneDrive/Documents/gif4.mp4" type="video/mp4"> -->
+    <source src="../PROJECTS2/projectpictures/gif4.mp4" type="video/mp4">
+  </video>
+  <div id="content" style="color: black;">
+    <h1>Looking into renting a car for your journey....?</h1>
+    <p></p>
+  </div>
+  <a href="secondpage.html" id="arrow"></a>
+</body>
+</html>

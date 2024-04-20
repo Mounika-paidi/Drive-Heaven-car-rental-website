@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>driveheaven.com</title>
+    <style>
+        body {
+            background-color: rgb(243, 240, 236);
+        }
+
+
+        .top-div {
+            background-color: rgb(230, 178, 82);
+            color: #0c0c0c;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #070707;
+        }
+
+       
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(177, 169, 123);
+            border-radius: 50%;
+            margin-right: 20px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #fff;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+       
+        .logo-sentence {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+       
+        .dropdown-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown {
+            position: relative;
+            margin-left: 20px;
+           
+        }
+
+        .dropdown button {
+            background-color: white;
+            color: #111010;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown button:hover {
+            background-color: slategray;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f0ebeb;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            left: 0;
+            top: 100%;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .sub-sub-dropdown {
+            display: none;
+            position: absolute;
+            left: -160px;
+           
+            top: 0;
+            min-width: 160px;
+            background-color: #f0ebeb;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content:hover .sub-sub-dropdown {
+            display: block;
+        }
+
+        
+        .background {
+            height: 600px;
+            border: 3px solid black;
+            background: url('file:///C:/Users/User/Downloads/background.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            filter: blur(1px);
+        }
+
+        .additional-info {
+            display: none;
+            
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .view-more {
+            cursor: pointer;
+            color: blue;
+        }
+
+        .view-more:hover {
+            text-decoration: underline;
+        }
+
+        .car-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: rgb(226, 221, 214);
+        }
+
+        .car-box {
+            width: calc(25% - 20px);
+           
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .car-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 100px;
+        }
+
+        .car-name {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .car-ratings {
+            margin-top: 5px;
+            color: #666;
+        }
+
+        .car-price {
+            margin-top: 5px;
+            font-size: 18px;
+            color: #009688;
+        }
+
+        .book-now-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .book-now-button:hover {
+            background-color: #005a4f;
+        }
+
+        .slideshow-container {
+            margin: 0 auto;
+           
+            background-color: white;
+            
+        }
+
+        /* .slideshow-image {
+    display: none;
+    width: 100%;
+    height: auto;
+} */
+        .slideshow-container {
+            margin: 0 auto;
+            
+            background-color: white;
+            
+            max-width: 600px;
+           
+        }
+
+        .slideshow-image {
+            display: none;
+            width: 100%;
+           
+            max-width: 100%;
+           
+            height: auto;
+        
+        }
+
+        .car-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .car-details-item {
+            background-color: #ccc;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .car-details-item+.car-details-item {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-div">
+        <div class="logo">
+            <img src="../PROJECTS2/projectpictures/ms5.gif" alt="Logo">
+        </div>
+        <div class="logo-sentence"
+            style="font-size: x-large; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            "Don't just rent a car, rent an experience - start your adventure with us today...!"
+        </div>
+
+        <div class="dropdown-container">
+            <div class="dropdown">
+                <button class="dropbtn">New Cars</button>
+                <div class="dropdown-content">
+                    <a href="#">By Brand</a>
+                    <div class="sub-sub-dropdown">
+                        <a href="search1.html?brand=maruti">Maruti Suzuki</a>
+                        <a href="search2.html?brand=hyundai">Hyundai</a>
+                        <a href="search3.html?brand=volkswagen">Volkswagen</a>
+                        <a href="search4.html?brand=tata">Tata</a>
+                        <a href="search5.html?brand=toyota">Toyota</a>
+                        <a href="search6.html?brand=all">All Other Brands</a>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="confirmNavigation()">Home</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a href="firstpage.html">Back</a>
+    </div>
+    <div
+        style="text-align: center;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        <h1> Toyota Cars Near you</h1>
+    </div>
+    <div>
+        <img class="slideshow-image" src="../PROJECTS2/projectpictures/168110446564339e51dc795_23370_IBank_Fortuner banner.jpg"
+            alt="Slideshow Image 2">
+       
+    </div>
+
+    <div class="car-container">
+        <!-- Row 1 -->
+
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to1.webp" alt="Car 1">
+            <div class="car-name">Toyota Urban Cruiser Taisor</div>
+            <div class="car-ratings">4.5 stars</div>
+            <div class="car-price">850/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">24-38km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to2.webp" alt="Car 2">
+            <div class="car-name">Toyota Glanza</div>
+            <div class="car-ratings">3 stars</div>
+            <div class="car-price">755/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">24-32km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to3.webp" alt="Car 3">
+            <div class="car-name">Toyota Rumion</div>
+            <div class="car-ratings">4.3 stars</div>
+            <div class="car-price">818/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">13-16km/l</div>
+                <div class="car-details-item">4seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to4.webp" alt="Car 4">
+            <div class="car-name">Toyota Urban Cruiser Hyryder</div>
+            <div class="car-ratings">4.7 stars</div>
+            <div class="car-price">850/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">24-34km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to5.webp" alt="Car 5">
+            <div class="car-name">Toyota Innova Hycross</div>
+            <div class="car-ratings">4.6 stars</div>
+            <div class="car-price">721/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">23-34km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to6.webp" alt="Car 6">
+            <div class="car-name">Toyota Innova Crysta</div>
+            <div class="car-ratings">3.9 stars</div>
+            <div class="car-price">856/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">28-31km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to7.webp" alt="Car 7">
+            <div class="car-name">Toyota Hilux</div>
+            <div class="car-ratings">3.4 stars</div>
+            <div class="car-price">990/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">20-28km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to8.webp" alt="Car 8">
+            <div class="car-name">Toyota Fortuner</div>
+            <div class="car-ratings">3.8 stars</div>
+            <div class="car-price">900/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">28-39km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to9.webp" alt="Car 9">
+            <div class="car-name">Toyota Fortuner Lengender</div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">900/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to10.webp" alt="Car 10">
+            <div class="car-name">Toyota Camry</div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">650/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to11.webp" alt="Car 11">
+            <div class="car-name">Toyota Vellfire</div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">1020/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to12.webp" alt="Car 12">
+            <div class="car-name">Toyota Land Cruiser</div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">1520/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to13.webp" alt="Car 13">
+            <div class="car-name">Toyota Innova Crysta</div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">780/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to14.webp" alt="Car 14">
+            <div class="car-name">Toyota Fortuner</div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">790/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to15.webp" alt="Car 15">
+            <div class="car-name">Toyota Innova</div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">950/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to16.webp" alt="Car 16">
+            <div class="car-name">Toyota Corolla Altis</div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">900/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to17.webp" alt="Car 17">
+            <div class="car-name">Toyota Etios</div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">897/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to18.webp" alt="Car 18">
+            <div class="car-name">Toyota Glanza </div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">950/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+        <div class="car-box">
+            <img src="../PROJECTS2/projectpictures/to19.webp" alt="Car 19">
+            <div class="car-name">Toyota Liva</div>
+            <div class="car-ratings">4.1 stars</div>
+            <div class="car-price">1000/hr</div>
+            <div class="car-details">
+                <div class="car-details-item">Petrol</div>
+                <div class="car-details-item">21-32km/l</div>
+                <div class="car-details-item">4 seater</div>
+            </div>
+            <button class="book-now-button" onclick="redirectToBookingPage()">Book Now</button>
+        </div>
+
+
+
+        <div style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+            <p>Known for its robust presence in the Indian market, Toyota holds the second-largest market share among automobile manufacturers in India, with a market share of 6.30%, offering a range of vehicles that prioritize reliability, efficiency, and advanced technology. The brand's unique selling point lies in its focus on hybrid powertrains, providing eco-friendly options to consumers.
+
+                Toyota's key features include spacious and comfortable cabins, advanced infotainment systems, and a wide range of safety features, making it a popular choice for families and executives.
+                
+                In terms of competition, Toyota competes with brands like Skoda, BMW, Mercedes, Mahindra, Tata, Hyundai, and Maruti Suzuki.</p>
+            <div class="additional-info">
+                <p>The brand has a notable market share in the luxury sedan and SUV segments, with its most popular models being the Toyota Camry Hybrid, Toyota Fortuner, and Toyota Innova. These models are favored for their hybrid efficiency, powerful diesel engines, and spacious, feature-packed interiors. 
+
+                    Toyota's emphasis on reliability and advanced technology has solidified its position in the Indian automotive market.</p>
+            </div>
+            <div class="toggle-buttons">
+                <span class="view-more" onclick="toggleInfo()">View More</span>
+            </div>
+        </div>
+        <div style="width: 400px; margin: auto;">
+            <img src="../PROJECTS2/projectpictures/download (2).jpeg" alt="Hyundai Steering Wheel">
+        </div>
+
+       
+        <script>
+           
+           
+    function confirmNavigation() {
+        var confirmation = confirm("Are you sure you want to exit?");
+        if (confirmation) {
+            window.location.href = "firstpage.html"; 
+        }
+    }
+            var slideIndex = 0;
+            var slides = document.getElementsByClassName("slideshow-image");
+
+            function showSlides() {
+                for (var i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1
+                }
+                slides[slideIndex - 1].style.display = "block";
+                setTimeout(showSlides, 2000); 
+            }
+
+           
+            showSlides();
+        </script>
+
+        <script>
+            function toggleInfo() {
+                var additionalInfo = document.querySelector('.additional-info');
+                var viewMoreButton = document.querySelector('.view-more');
+
+                if (additionalInfo.style.display === 'none') {
+                    additionalInfo.style.display = 'block';
+                    viewMoreButton.textContent = 'View Less';
+                } else {
+                    additionalInfo.style.display = 'none';
+                    viewMoreButton.textContent = 'View More';
+                }
+            }
+        </script>
+        <script>
+            function redirectToBookingPage() {
+               
+                window.location.href = "warning.html";
+            }
+        </script>
+</body>
+
+</html>
